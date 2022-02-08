@@ -1,0 +1,27 @@
+#fondoHeader{
+    background-color: aquamarine;
+    padding: 50px;
+}
+
+#linkRedes{    
+    margin: 0px 10px;
+    float: right;
+    width: 2rem;
+       
+}
+
+#navArriba{    
+    margin-top: -50px;
+    padding-bottom: 150px;    
+ }
+
+#imgPerfil{
+    margin-top: -10rem;
+    text-align: center;       
+}
+
+#img{    
+    border-radius: 100%;
+    padding: 5px;
+    background-color: blueviolet;   
+}
