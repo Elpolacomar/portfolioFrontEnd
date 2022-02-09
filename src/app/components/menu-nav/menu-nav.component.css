@@ -1,12 +1,33 @@
 #fondoHeader{
     background-color: aquamarine;
     margin-top: 55px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     border-radius: 10px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    font-size: 1.5rem;
 }
 
 #navArriba{    
     margin-top: -50px;
-    padding-bottom: 150px;
+    padding-bottom: 80px;
             
+}
+
+#imgPerfil{
+    margin-top: -10rem;
+    text-align: center;     
+    display: inline-block;          
+}
+
+#img{ 
+    width: 11rem; 
+    margin-left: 20px;      
+    border-radius: 100%;
+    padding: 0px;
+    box-shadow: -1px 3px 14px 2px rgba(0,0,0,0.78);
+    -webkit-box-shadow: -1px 3px 14px 2px rgba(0,0,0,0.78);
+    -moz-box-shadow: -1px 3px 14px 2px rgba(0,0,0,0.78);
 }
