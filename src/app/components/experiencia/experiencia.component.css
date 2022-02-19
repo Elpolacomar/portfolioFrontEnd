@@ -1,0 +1,22 @@
+.bloque-experiencia{
+    padding: 10px;
+    color: rgb(27, 11, 247);
+    background-color: rgb(246, 248, 91);
+    border-radius: 5px;
+    margin: 5px 0px 10px 0px;
+}
+
+.bloque-experiencia label{
+    margin-left: 10px;
+    font-size: 2rem;
+    font-family: cursive;
+}
+
+.bloque-experiencia i{
+    margin-right: 10px; 
+    font-size: 2rem;  
+}
+
+.bloque-experiencia p, span{
+    margin: 5px 0px 0px 70px;
+}

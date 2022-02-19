@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 
 @Component({
   selector: 'app-menu-nav',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-nav.component.css']
 })
 export class MenuNavComponent implements OnInit {
-
-  constructor() { }
+  infoPorfolio: any = "";
+  constructor(private datosPorfolio:DatosPorfolioService) { }
 
   ngOnInit(): void {
+    this.datosPorfolio.obtenerDatos().subscribe(datos =>{
+      this.infoPorfolio = datos;
+    });
   }
 
 }

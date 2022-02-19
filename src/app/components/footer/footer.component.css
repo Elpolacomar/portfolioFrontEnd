@@ -1,0 +1,13 @@
+footer{
+    padding: 10px;
+    color: rgb(78, 4, 252);
+    background-color: rgb(91, 248, 240);
+    border-radius: 5px;
+    margin: 5px 0px 10px 0px;
+    text-align: center;    
+}
+
+footer span{
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
