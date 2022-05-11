@@ -1,22 +1,77 @@
-<h1 class="titulo-bloques">Bloque Habilidades Duras y Blandas</h1>
-      
-      <div class="col-md-12 ">
-        <div class="row ">
-            <div class="col-xl-3 col-lg-6">
+<div id="habilidad">
+    <!-- Modal -->
+    <div class="modal fade" id="habilidadForm" tabindex="-1" aria-labelledby="habilidadFormLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="habilidadFormLabel">Habilidad</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="habilidadForm" (ngSubmit)="onSubmit()">
+              <input type="hidden" name="id" formControlName="id">
+  
+              <div class="row mb-3">
+                <label for="tipo" class="col-sm-2 col-form-label">Tipo</label>
+                <div class="col-sm-10">
+                  <input type="text" name="tipo" formControlName="tipo" class="form-control" required>
+                </div>
+              </div>
+  
+              <div class="row mb-3">
+                <label for="anio" class="col-sm-2 col-form-label">Año</label>
+                <div class="col-sm-10">
+                  <input type="text" name="anio" formControlName="anio" class="form-control" required>
+                </div>
+              </div>
+  
+              <div class="row mb-3">
+                <label for="porcentaje" class="col-sm-2 col-form-label">Porcentaje</label>
+                <div class="col-sm-10">
+                  <input type="text" name="porcentaje" formControlName="porcentaje" class="form-control" required>
+                </div>
+              </div> 
+              <div class="text-center">
+                <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Portfolio -->
+  
+<div class="btn-plus" *ngIf="isUserLogged">    
+    <a class="plus" data-bs-toggle="modal" data-bs-target="#habilidadForm" (click)="onNewHabilidad()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+</div>
+<h1 class="titulo-bloques">Bloque Habilidades Duras y Blandas</h1>      
+     
+      <div class="col-md-12">        
+        <div class="row">
+         
+              
+            <div class="col-xl-3 col-lg-6" *ngFor="let habilidad of habilidadList; let i = index">
                 <div class="card l-bg-cherry">
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">HTML</h5>
+                            <h5 class="card-title mb-0">{{ habilidad.tipo }}</h5>
+                        </div>
+                        <div class="btn-edit" *ngIf="isUserLogged">
+                            <a class="edit-hability" data-bs-toggle="modal" data-bs-target="#habilidadForm" (click)="onEditHabilidad(i)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a class="edit-hability-delete" (click)="onDeleteHabilidad(i)"><i class="fa fa-trash"></i></a>        
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center mb-0">
-                                    2019
+                                    {{ habilidad.anio }}
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <span>40% <i class="fa fa-arrow-up"></i></span>
+                                <span>{{ habilidad.porcentaje }}% <i class="fa fa-arrow-up"></i></span>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -24,75 +79,5 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-blue-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">CSS</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    2019    
-                                </h2>
-                            </div>
-                            <div class="col-4 text-right">
-                                <span>40% <i class="fa fa-arrow-up"></i></span>
-                            </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-green-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">JAVASCRIPT</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    2020
-                                </h2>
-                            </div>
-                            <div class="col-4 text-right">
-                                <span>20% <i class="fa fa-arrow-up"></i></span>
-                            </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-orange-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">ANGULAR</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    2021
-                                </h2>
-                            </div>
-                            <div class="col-4">
-                                <span> 5% <i class="fa fa-arrow-up"></i></span>
-                            </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            </div>      
+            

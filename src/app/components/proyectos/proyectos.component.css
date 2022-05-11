@@ -18,3 +18,9 @@
     padding: 20px;
     text-align: justify;    
 }
+
+.btn_delete{   
+    margin-right: 30px;
+}
+
+li {list-style:none !important}

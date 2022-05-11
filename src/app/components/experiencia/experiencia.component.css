@@ -20,3 +20,9 @@
 .bloque-experiencia p, span{
     margin: 5px 0px 0px 70px;
 }
+
+.btn_delete{   
+    margin-right: 30px;
+}
+
+li {list-style:none !important}

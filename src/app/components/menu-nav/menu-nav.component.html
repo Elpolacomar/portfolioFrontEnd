@@ -1,3 +1,64 @@
+<div id="menu">
+  <!-- Modal -->
+  <div class="modal fade" id="menuForm" tabindex="-1" aria-labelledby="menuFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="menuFormLabel">Menú</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" name="id" formControlName="id">
+
+            <div class="row mb-3">
+              <label for="nombre" class="col-sm-2 col-form-label">Nombres</label>
+              <div class="col-sm-10">
+                <input type="text" name="nombre" formControlName="nombre" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="apellido" class="col-sm-2 col-form-label">Apellidos</label>
+              <div class="col-sm-10">
+                <input type="text" name="apellido" formControlName="apellido" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="ubicacion" class="col-sm-2 col-form-label">Ubicación</label>
+              <div class="col-sm-10">
+                <input type="text" name="ubicacion" formControlName="ubicacion" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+              <div class="col-sm-10">
+                <input type="text" name="descripcion" formControlName="descripcion" class="form-control" required>
+              </div>
+            </div> 
+
+            <div class="row mb-3">
+              <label for="ruta_image" class="col-sm-2 col-form-label">Imagen</label>
+              <div class="col-sm-10">
+                <input type="text" name="ruta_image" formControlName="ruta_image" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- Portfolio -->
+
 <div id="fondoHeader">
      
     <header id="navArriba">
@@ -9,18 +70,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <li class="nav-item" *ngIf="!isUserLogged">
+                <a id="linkLogin" class="nav-link" routerLink="/iniciar-sesion"><i class="fa-solid fa-user"></i> Login</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#referencias">Referencias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#educacion">Educación</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#proyectos">Proyectos</a>
-              </li>
+              <li class="nav-item" *ngIf="isUserLogged" (click)="onLogOut()">
+                <a id="linkLogin" class="nav-link" routerLink="/portfolio"><i class="fa-solid fa-user"></i> Logout</a>
+              </li> 
             </ul>            
           </div>
         </div>
@@ -28,17 +83,18 @@
     </header>
   </div>
   
-  <div id="imgPerfil">    
-    <img id="img" src="assets/img/imgPerfil.png" alt="foto_portfolio">
+  <div id="imgPerfil" *ngFor="let menu of menuList">    
+    <img id="img" src={{menu.ruta_image}} alt="foto_portfolio">
     
   </div>
-
-<div style="border: solid 1px black; border-radius: 10px; margin-top: -100px;">
-  <span style="margin-left:210px; font-size: 3rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{infoPorfolio.name}}</span>
-  <h1 style="margin-top: 30px; margin-left: 10px;text-shadow: 2px 2px 4px #9b9292;">Programador WEB</h1>
- 
-    <span style="margin-left:15px; font-size: 1.5rem;">Mendoza - Argentina</span>
-    <!-- <span style="margin-left:15px; font-size: 1.5rem;">{{infoPorfolio.name}}</span><br>
-    <span style="margin-left:15px; font-size: 1.5rem;">{{infoPorfolio.name}}</span> -->
- 
+  <div class="btn-edit" *ngIf="isUserLogged">    
+    <a *ngFor="let menu of menuList; let i = index" class="edit" data-bs-toggle="modal" data-bs-target="#menuForm" (click)="onEditMenuNav(i)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>      
+ </div>
+<div style="border: solid 1px black; border-radius: 10px; margin-top: -100px;" *ngFor="let menu of menuList">
+  <span style="margin-left:210px; font-size: 3rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"></span>
+  <h1 style="margin-top: 30px; margin-left: 10px;text-shadow: 2px 2px 4px #9b9292;">{{menu.nombre}} {{menu.apellido}}</h1>
+    
+    <span style="margin-left:15px; font-size: 1.5rem;">{{menu.ubicacion}}</span><br>
+    <span style="margin-left:15px; font-size: 1.5rem;">{{menu.descripcion}}</span>
+     
 </div>

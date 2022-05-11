@@ -2,3 +2,27 @@
 .titulo-bloques{
     margin: 20px 0 20px;
 }
+
+.btn-edit i {
+    position: relative; 
+    color: red;   
+}
+
+.btn-plus i {
+    position: relative;
+    color: blue;    
+}
+
+.edit {
+  position:absolute;
+  padding: 1px;
+  right: 20px !important;
+  margin-top: 10px !important;
+}
+
+.plus {
+ position:absolute;
+ padding: 0px;
+ right: 25px; 
+ margin-top: 10px;
+}

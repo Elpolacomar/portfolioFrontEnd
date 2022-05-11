@@ -6,14 +6,15 @@
 }
 
 .navbar-nav {
-    margin-left: auto;
+    margin: auto;
     font-size: 1.5rem;
+    width: 100%;
+    display: inline-block;
 }
 
 #navArriba{    
     margin-top: -50px;
-    padding-bottom: 80px;
-            
+    padding-bottom: 18px;          
 }
 
 #imgPerfil{
@@ -30,4 +31,14 @@
     box-shadow: -1px 3px 14px 2px rgba(0,0,0,0.78);
     -webkit-box-shadow: -1px 3px 14px 2px rgba(0,0,0,0.78);
     -moz-box-shadow: -1px 3px 14px 2px rgba(0,0,0,0.78);
+}
+
+#linkLogin{    
+    margin-top: 3px;
+    float: right;
+    font-size: 1rem;                   
+}
+
+#linkLogin:hover{
+    transform:scale(1.1);    
 }
