@@ -1,3 +1,3 @@
 export const config = {
-    baseUrl: "http://localhost:8080/"
+    baseUrl: "https://nameless-taiga-02291.herokuapp.com/"
 }
